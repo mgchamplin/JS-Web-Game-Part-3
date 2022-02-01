@@ -1,9 +1,19 @@
+function move(image){
+    image.style.position = 'fixed'
+    
+    function moveToCoordinates(left, bottom){
+        image.style.left = left + 'px';
+        image.style.bottom = bottom + 'px';
+    }
+
+    return {
+        to: moveToCoordinates
+    }
+}
+
 function newImage(url, left, bottom){
     let image = document.createElement('img')
     image.src = url
-    image.style.position = 'fixed'
-    image.style.left = left + 'px'
-    image.style.bottom = bottom + 'px'
     document.body.append(image)
     return image
 }
@@ -49,3 +59,6 @@ function newInventory(){
 }
 
 const inventory = newInventory()
+
+
+move(newImage('assets/green-character.gif')).to(100, 250)
